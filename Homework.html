@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Dalgona Coffee</title>
+        <style>
+            
+        @import url("https://fonts.googleapis.com/css?family=Allerta+Stencil|Open+Sans&display=swap");
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: auto;
+    font-family: "Open Sans", sans-serif;
+    background-color: #ccc;
+}
+
+#disclaimer {
+    opacity: 0.8;
+    color: #eee;
+    font-size: 14px;
+}
+
+#pageRoot {
+    padding: 80px 50px;
+    background-color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 100px;
+}
+
+#PageTitle {
+    font-family: "Allerta Stencil", sans-serif;
+    letter-spacing: 3px;
+    font-size: 46px;
+    font-weight: 100;
+    position: relative;
+    color: #444;
+    text-align: right;
+}
+#PageTitle::after {
+    content: "";
+    position: absolute;
+    display: block;
+    height: 2px;
+    width: 100%;
+    bottom: -10px;
+    background-color: #aaa;
+}
+
+#about {
+    color: #666;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+h3 {
+    font-size: 16px;
+    color: white;
+    background-color: #444;
+    padding: 10px 5px;
+    text-align: center;
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+}
+
+ol {
+    margin: 0;
+}
+ul {
+    padding-left: 0;
+}
+
+.ingredients {
+    list-style-image: url("handpoint.svg");
+    /* I know the test asked for this, but I want to align the items via flex so I am commenting it out */
+    padding-left: 60px;
+}
+
+.preparation {
+    /* list-style: upper-roman; */
+    /* I know the test asked for this, but I want to align the items via flex so I am commenting it out */
+    padding: 0;
+}
+
+.preparation > li {
+    display: flex;
+    align-items: center;
+    min-height: 35px;
+}
+.preparation > li:nth-child(odd) {
+    background-color: #ddd;
+}
+
+.emojiImg {
+    height: 35px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+#conclusion {
+    margin: 50px 0 20px;
+    padding: 50px 50px;
+    text-align: justify;
+    letter-spacing: 3px;
+    line-height: 2.5;
+    border: solid 2px #666;
+    border-left: none;
+    border-right: none;
+}
+
+.emphasize {
+    font-weight: bold;
+}
+
+#gallery {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+#gallery > img {
+    margin: 10px 0;
+    width: 33%;
+    height: 33%;
+}
+
+#reference {
+    display: flex;
+    justify-content: space-between;
+}
+
+#reference > li {
+    display: flex;
+    padding: 10px 10px;
+    margin: auto 5px;
+    border: solid 1px #666;
+    background: #666;
+    box-shadow: 3px 2px 8px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    transition-duration: 0.5s;
+    color: white;
+}
+
+#reference > li:hover {
+    border-color: #999;
+    background-color: #999;
+    color: #333;
+}
+#reference > li:last-child {
+    margin-right: 0;
+}
+#reference > li:first-child {
+    margin-left: 0;
+}
+
+#reference > li > a {
+    color: inherit;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 750px) {
+    #pageRoot {
+        padding: 0 25px;
+    }
+    #PageTitle {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+    #gallery {
+        flex-direction: column;
+    }
+    #gallery > img {
+        height: auto;
+        width: 100%;
+    }
+    #reference {
+        flex-direction: column;
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    #reference > li {
+        margin: 0;
+        border-radius: 0;
+    }
+    #reference > li:nth-child(odd) {
+        background: #999;
+        border-color: #999;
+    }
+    #conclusion {
+        letter-spacing: 1px;
+        line-height: 2;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    #pageRoot {
+        padding: 10px;
+    }
+    #PageTitle {
+        font-size: 22px;
+        margin-top: 10px;
+    }
+    #reference {
+        font-size: 13px;
+    }
+}
+            
+        </style>
+    </head>
+    <body>
+        <h3 id="disclaimer">
+            Disclaimer: All the images used here belong to their rightful owners and are just used for demonstration
+            purposes.
+        </h3>
+        <div id="pageRoot">
+            <h1 id="PageTitle">
+                My recipe to eat fast<br>
+                Dalgona coffee Recipe
+            </h1>
+            <p id="about">
+                The recipe for this dish is
+                <span class="emphasize">Simple but takes a long while to prepare</span>, but it is very worth it.
+                <span class="emphasize">Dalgona coffee (Korean: 달고나커피)</span> is a beverage made by whipping equal proportions of <span class="emphasize">instant coffee</span> powder, sugar, and hot water until it becomes creamy and then adding it to cold or hot milk. Occasionally, it is topped with <span class="emphasize">coffee</span> powder, cocoa, crumbled biscuits, or honey.
+            </p>
+            <section>
+                <h3>Ingredients:</h3>
+                <ul class="ingredients">
+                    <li>coffee</li>
+                <li>milk</li>
+                <li>water</li>
+                <li>suger</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Preparation:</h3>
+                <ol class="preparation">
+                    <li>In a medium bowl, combine sugar, coffee, and water.
+                     <img class="emojiImg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/jx-dalgona-coffee-horizontal-7-jpg-1586301264.jpg?resize=640:*" />
+                    </li>
+                    <li>
+                        Using a hand mixer or a whisk, vigorously whisk until mixture turns silky smooth and shiny, then continue whisking until it thickens and holds its lofty, foamy shape. (If whisking by hand, it will take 8 to 12 minutes to get to optimal fluffiness.)
+                         <img class="emojiImg" src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/jx-dalgona-coffee-horizontal-6-jpg-1586301264.jpg?resize=640:*" />
+                    </li>
+                    <li>
+                        Fill a glass most of the way full with ice and milk, then dollop and swirl the whipped coffee mixture on top, mixing before drinking, if desired.
+                         <img class="emojiImg" src="https://mykoreankitchen.com/wp-content/uploads/2020/04/1.-Dalgona-Coffee.jpg" />
+                    </li>
+                </ol>
+            </section>
+            <p id="conclusion">
+                The mixure of flavors is <span class="emphasize">AMAZING</span>. Bland of sourness relaxes the greasy
+                taste of meat and the way of preparation makes it feel light almost as dietary, but do not be fooled
+                this dish is very calorie dense.
+            </p>
+            <div id="gallery">
+                <img src="https://image.shutterstock.com/image-photo/cup-coffe-milk-on-dark-260nw-1478662055.jpg" />
+                <img src="https://cdn.asiatatler.com/asiatatler/i/hk/2020/03/23144452-img-2565_cover_1125x1394.jpg" />
+            </div>
+            <section>
+                <h3>Other sources:</h3>
+                <ul id="reference">
+                    <li>
+                        <a href="https://kimchimari.com/dalgona-coffee">
+                            kimchimari
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.whiskaffair.com/dalgona-coffee-recipe">
+                            whiskaffair
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://mytastycurry.com/dalgona-coffee-recipe">
+                            mytastycurry
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://leascoffee.com/what-is-dalgona-coffee/">
+                            leascoffee
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=MhUEeOyirBk">
+                            Video Recipe
+                        </a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </body>
+</html>
